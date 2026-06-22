@@ -2,24 +2,33 @@
 
 ## Overview
 
-A Python-based web scraping and data pipeline system that extracts quote data from a website, processes it, and stores it in PostgreSQL for analysis and retrieval.
+A Python-based web scraping and data pipeline system that extracts quote data from a website, processes it, and stores it in PostgreSQL. The system also exposes the data through a FastAPI REST API for retrieval and automation.
+
+---
 
 ## Features
 
 - Web scraping using Requests and BeautifulSoup
-- Multi-page scraping with pagination
+- Multi-page scraping with pagination support
 - PostgreSQL database integration
-- Duplicate prevention
-- Logging support
-- Modular project structure
+- Duplicate record prevention
+- Logging system for debugging and monitoring
+- REST API using FastAPI
+- API-triggered scraping pipeline
+
+---
 
 ## Technologies Used
 
 - Python
+- FastAPI
+- Uvicorn
 - Requests
 - BeautifulSoup4
 - PostgreSQL
 - psycopg2
+
+---
 
 ## Project Structure
 
@@ -42,28 +51,66 @@ web-scraper-pipeline-system/
 │   └── logger.py
 │
 ├── logs/
+│   └── app.log (auto-generated)
 │
+├── main_api.py
 ├── config.py
-├── main.py
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 ```
 
+---
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | Health check |
+| GET | `/quotes` | Fetch all quotes |
+| GET | `/quotes/random` | Fetch a random quote |
+| POST | `/scrape` | Trigger web scraping pipeline |
+
+---
+
 ## How to Run
 
+### 1. Install dependencies
 ```bash
 pip install -r requirements.txt
-python scraper/scraper.py
 ```
+
+### 2. Start FastAPI server
+```bash
+python -m uvicorn main_api:app --reload
+```
+
+### 3. Open API docs
+```
+http://127.0.0.1:8000/docs
+```
+
+---
 
 ## Key Learnings
 
-- Web scraping and data extraction
-- PostgreSQL database operations
-- Python backend development
-- Logging and debugging
-- Git and GitHub workflow
+- Web scraping and structured data extraction
+- Backend API development using FastAPI
+- PostgreSQL database design and operations
+- Modular Python project architecture
+- Logging and debugging techniques
+- Git and version control workflow
+
+---
+
+## Future Improvements
+
+- Add scheduled scraping (automation)
+- Deploy API using cloud platforms (Render/Railway)
+- Add authentication for API security
+- Containerize project using Docker
+
+---
 
 ## Author
 

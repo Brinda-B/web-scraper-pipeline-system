@@ -5,5 +5,5 @@ def get_connection():
         host="localhost",
         database="scraper_db",
         user="postgres",
-        password="brinda2005"
+        password="YOUR_PASSWORD"
     )

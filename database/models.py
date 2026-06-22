@@ -1,5 +1,6 @@
 from database.db import get_connection
 
+
 def insert_quote(text, author):
     conn = get_connection()
     cur = conn.cursor()
@@ -28,3 +29,16 @@ def insert_quote(text, author):
 
     cur.close()
     conn.close()
+
+
+def fetch_all_quotes():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute("SELECT text, author FROM quotes")
+    rows = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
+    return [{"text": r[0], "author": r[1]} for r in rows]

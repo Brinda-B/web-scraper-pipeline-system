@@ -1,32 +1,32 @@
 # Web Scraper Pipeline System
 
-## Overview
-
-A Python-based web scraping and data pipeline system that extracts quote data from a website, processes it, and stores it in PostgreSQL. The system also exposes the data through a FastAPI REST API for retrieval and automation.
+A Python-based web scraping and data pipeline system that extracts quotes from a website, processes them, and stores them in a PostgreSQL database. The project also exposes a FastAPI backend to trigger scraping and retrieve stored data.
 
 ---
 
 ## Features
 
 - Web scraping using Requests and BeautifulSoup
-- Multi-page scraping with pagination support
-- PostgreSQL database integration
-- Duplicate record prevention
-- Logging system for debugging and monitoring
+- Multi-page scraping (pagination support)
 - REST API using FastAPI
-- API-triggered scraping pipeline
+- PostgreSQL database integration
+- Duplicate data prevention
+- Logging system for debugging and tracking
+- Modular and scalable architecture
+- Environment variable support using `.env`
 
 ---
 
-## Technologies Used
+## Tech Stack
 
 - Python
 - FastAPI
-- Uvicorn
 - Requests
 - BeautifulSoup4
 - PostgreSQL
 - psycopg2
+- python-dotenv
+- Uvicorn
 
 ---
 
@@ -35,30 +35,26 @@ A Python-based web scraping and data pipeline system that extracts quote data fr
 ```text
 web-scraper-pipeline-system/
 │
-├── scraper/
+├── scraper/                # Web scraping logic
 │   ├── scraper.py
 │   ├── pagination.py
-│   └── test_pagination.py
 │
-├── database/
-│   ├── __init__.py
+├── database/               # Database layer
 │   ├── db.py
 │   ├── models.py
-│   ├── test_connection.py
-│   └── test_insert.py
 │
-├── utils/
+├── utils/                  # Logger utility
 │   └── logger.py
 │
-├── logs/
-│   └── app.log (auto-generated)
+├── logs/                   # Runtime logs (ignored in Git)
+│   └── app.log
 │
-├── main_api.py
-├── config.py
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
+├── main_api.py            # FastAPI entry point
+├── config.py              # Loads environment variables
+├── requirements.txt       # Project dependencies
+├── .env                   # Environment variables (NOT pushed to GitHub)
+├── .gitignore
+└── README.md
 
 ---
 
@@ -73,42 +69,74 @@ web-scraper-pipeline-system/
 
 ---
 
-## How to Run
+## Setup Instructions
 
 ### 1. Install dependencies
-```bash
+
 pip install -r requirements.txt
-```
 
-### 2. Start FastAPI server
-```bash
-python -m uvicorn main_api:app --reload
-```
+---
 
-### 3. Open API docs
-```
+### 2. Create `.env` file
+
+Create a `.env` file in the root directory and add:
+
+DB_HOST=localhost  
+DB_NAME=scraper_db  
+DB_USER=postgres  
+DB_PASSWORD=your_password  
+DB_PORT=5432  
+
+---
+
+### 3. Run the FastAPI server
+
+uvicorn main_api:app --reload
+
+---
+
+### 4. Open API documentation
+
 http://127.0.0.1:8000/docs
-```
+
+---
+
+## Workflow
+
+FastAPI → Scraper → BeautifulSoup → PostgreSQL → API Response
+
+---
+
+## Security
+
+- Sensitive credentials stored in `.env`
+- `.env` and logs excluded using `.gitignore`
+- No hardcoded passwords in code
 
 ---
 
 ## Key Learnings
 
-- Web scraping and structured data extraction
-- Backend API development using FastAPI
-- PostgreSQL database design and operations
-- Modular Python project architecture
-- Logging and debugging techniques
-- Git and version control workflow
+- Web scraping using Requests and BeautifulSoup
+- Parsing and extracting structured data from HTML
+- Building REST APIs using FastAPI
+- PostgreSQL database integration
+- Duplicate prevention logic
+- Modular backend architecture design
+- Environment variable management using `.env`
+- Logging and debugging in Python applications
 
 ---
 
 ## Future Improvements
 
-- Add scheduled scraping (automation)
-- Deploy API using cloud platforms (Render/Railway)
-- Add authentication for API security
-- Containerize project using Docker
+- Add JWT authentication for secure APIs
+- Implement scheduled scraping (cron jobs / background tasks)
+- Deploy using Render / Railway / AWS
+- Add frontend dashboard for visualization
+- Improve scalability with async scraping (asyncio / httpx)
+- Add analytics layer for insights and trends
+- Add pagination API for better data access
 
 ---
 

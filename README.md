@@ -42,7 +42,7 @@ Shows all available endpoints and allows testing APIs directly.
 ### 2. All Quotes API Response
 Displays all scraped quotes stored in the database.
 
-![All Quotes](screenshots/quotes_api.png)
+![All Quotes](screenshots/all_quotes.png)
 
 ---
 
@@ -63,7 +63,7 @@ Shows successful execution of the scraping pipeline.
 ### 5. PostgreSQL Database Output
 Shows stored scraped data (quotes table with text and author).
 
-![Database Output](screenshots/db.png)
+![Database Output](screenshots/database.png)
 
 ---
 

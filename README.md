@@ -30,6 +30,43 @@ A Python-based web scraping and data pipeline system that extracts quotes from a
 
 ---
 
+## Screenshots
+
+### 1. API Documentation (FastAPI Swagger UI)
+Shows all available endpoints and allows testing APIs directly.
+
+![Swagger UI](screenshots/swagger.png)
+
+---
+
+### 2. All Quotes API Response
+Displays all scraped quotes stored in the database.
+
+![All Quotes](screenshots/quotes_api.png)
+
+---
+
+### 3. Random Quote API Response
+Returns a randomly selected quote from the database.
+
+![Random Quote](screenshots/random_quote.png)
+
+---
+
+### 4. Trigger Scraping Endpoint
+Shows successful execution of the scraping pipeline.
+
+![Scrape Endpoint](screenshots/scrape.png)
+
+---
+
+### 5. PostgreSQL Database Output
+Shows stored scraped data (quotes table with text and author).
+
+![Database Output](screenshots/db.png)
+
+---
+
 ## Project Structure
 
 ```text

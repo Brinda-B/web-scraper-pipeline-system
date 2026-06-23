@@ -55,7 +55,7 @@ web-scraper-pipeline-system/
 ├── .env                   # Environment variables (NOT pushed to GitHub)
 ├── .gitignore
 └── README.md
-
+```
 ---
 
 ## API Endpoints
@@ -72,13 +72,12 @@ web-scraper-pipeline-system/
 ## Setup Instructions
 
 ### 1. Install dependencies
-
+```bash
 pip install -r requirements.txt
-
----
+```
 
 ### 2. Create `.env` file
-
+```
 Create a `.env` file in the root directory and add:
 
 DB_HOST=localhost  
@@ -86,18 +85,17 @@ DB_NAME=scraper_db
 DB_USER=postgres  
 DB_PASSWORD=your_password  
 DB_PORT=5432  
-
----
+```
 
 ### 3. Run the FastAPI server
-
-uvicorn main_api:app --reload
-
----
+```bash
+python -m uvicorn main_api:app --reload
+```
 
 ### 4. Open API documentation
-
+```
 http://127.0.0.1:8000/docs
+```
 
 ---
 
